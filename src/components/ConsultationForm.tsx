@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import {
   AlertDialog,
   AlertDialogContent,
@@ -24,11 +23,8 @@ const ConsultationForm = ({ children }: ConsultationFormProps) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    company: "",
-    industry: "",
-    service: "",
-    message: "",
     phone: "",
+    message: "",
   });
 
   const { toast } = useToast();
@@ -40,7 +36,7 @@ const ConsultationForm = ({ children }: ConsultationFormProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.email || !formData.message) {
+    if (!formData.name || !formData.email || !formData.phone || !formData.message) {
       toast({
         title: "Error",
         description: "Please fill in all required fields.",
@@ -58,12 +54,9 @@ const ConsultationForm = ({ children }: ConsultationFormProps) => {
         
         Name: ${formData.name}
         Email: ${formData.email}
-        Company: ${formData.company || 'Not provided'}
-        Phone: ${formData.phone || 'Not provided'}
-        Industry: ${formData.industry || 'Not specified'}
-        Service Interest: ${formData.service || 'General consultation'}
+        Phone: ${formData.phone}
         
-        Message:
+        Message/Request:
         ${formData.message}
         
         Submitted at: ${new Date().toLocaleString()}
@@ -87,11 +80,8 @@ const ConsultationForm = ({ children }: ConsultationFormProps) => {
       setFormData({
         name: "",
         email: "",
-        company: "",
-        industry: "",
-        service: "",
-        message: "",
         phone: "",
+        message: "",
       });
       setOpen(false);
 
@@ -118,100 +108,49 @@ const ConsultationForm = ({ children }: ConsultationFormProps) => {
         </AlertDialogHeader>
         
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <Label htmlFor="name">Name *</Label>
-              <Input
-                id="name"
-                value={formData.name}
-                onChange={(e) => handleInputChange("name", e.target.value)}
-                placeholder="Your full name"
-                required
-              />
-            </div>
-            <div>
-              <Label htmlFor="email">Email *</Label>
-              <Input
-                id="email"
-                type="email"
-                value={formData.email}
-                onChange={(e) => handleInputChange("email", e.target.value)}
-                placeholder="your.email@company.com"
-                required
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <Label htmlFor="company">Company</Label>
-              <Input
-                id="company"
-                value={formData.company}
-                onChange={(e) => handleInputChange("company", e.target.value)}
-                placeholder="Your company"
-              />
-            </div>
-            <div>
-              <Label htmlFor="phone">Phone</Label>
-              <Input
-                id="phone"
-                value={formData.phone}
-                onChange={(e) => handleInputChange("phone", e.target.value)}
-                placeholder="Your phone number"
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <Label htmlFor="industry">Industry</Label>
-              <Select onValueChange={(value) => handleInputChange("industry", value)}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select industry" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="healthcare">Healthcare</SelectItem>
-                  <SelectItem value="finance">Financial Services</SelectItem>
-                  <SelectItem value="retail">Retail & E-commerce</SelectItem>
-                  <SelectItem value="technology">Technology</SelectItem>
-                  <SelectItem value="manufacturing">Manufacturing</SelectItem>
-                  <SelectItem value="logistics">Logistics & Transportation</SelectItem>
-                  <SelectItem value="energy">Energy & Utilities</SelectItem>
-                  <SelectItem value="education">Education</SelectItem>
-                  <SelectItem value="realestate">Real Estate</SelectItem>
-                  <SelectItem value="other">Other</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            <div>
-              <Label htmlFor="service">Service Interest</Label>
-              <Select onValueChange={(value) => handleInputChange("service", value)}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select service" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="finance">Finance Analytics</SelectItem>
-                  <SelectItem value="operations">Operations Analytics</SelectItem>
-                  <SelectItem value="strategy">Business Strategy</SelectItem>
-                  <SelectItem value="hr">People & HR Analytics</SelectItem>
-                  <SelectItem value="customer">Customer Insights</SelectItem>
-                  <SelectItem value="competitor">Competitor Analysis</SelectItem>
-                  <SelectItem value="market">Market Research</SelectItem>
-                  <SelectItem value="consultation">General Consultation</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
+          <div>
+            <Label htmlFor="name">Name *</Label>
+            <Input
+              id="name"
+              value={formData.name}
+              onChange={(e) => handleInputChange("name", e.target.value)}
+              placeholder="Your full name"
+              required
+            />
           </div>
 
           <div>
-            <Label htmlFor="message">Message *</Label>
+            <Label htmlFor="email">Email *</Label>
+            <Input
+              id="email"
+              type="email"
+              value={formData.email}
+              onChange={(e) => handleInputChange("email", e.target.value)}
+              placeholder="your.email@company.com"
+              required
+            />
+          </div>
+
+          <div>
+            <Label htmlFor="phone">Phone *</Label>
+            <Input
+              id="phone"
+              type="tel"
+              value={formData.phone}
+              onChange={(e) => handleInputChange("phone", e.target.value)}
+              placeholder="Your phone number"
+              required
+            />
+          </div>
+
+          <div>
+            <Label htmlFor="message">Message/Request *</Label>
             <Textarea
               id="message"
               value={formData.message}
               onChange={(e) => handleInputChange("message", e.target.value)}
               placeholder="Tell us about your analytics needs or questions..."
-              className="min-h-[80px]"
+              className="min-h-[100px]"
               required
             />
           </div>
