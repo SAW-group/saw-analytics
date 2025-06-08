@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ConsultationForm from "./ConsultationForm";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,9 +48,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                   {item.name}
                 </Link>
               ))}
-              <Button className="saw-gradient text-white hover:opacity-90">
-                Request Consultation
-              </Button>
+              <ConsultationForm>
+                <Button className="saw-gradient text-white hover:opacity-90">
+                  Request Consultation
+                </Button>
+              </ConsultationForm>
             </div>
 
             {/* Mobile menu button */}
@@ -81,9 +84,13 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                     {item.name}
                   </Link>
                 ))}
-                <Button className="w-full mt-4 saw-gradient text-white">
-                  Request Consultation
-                </Button>
+                <div className="px-3 py-2">
+                  <ConsultationForm>
+                    <Button className="w-full saw-gradient text-white">
+                      Request Consultation
+                    </Button>
+                  </ConsultationForm>
+                </div>
               </div>
             </div>
           )}
