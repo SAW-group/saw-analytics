@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 198 100% 20%;
+    --primary: 210 100% 25%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -23,7 +23,7 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 175 100% 40%;
+    --accent: 15 85% 55%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
@@ -31,7 +31,7 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 198 100% 20%;
+    --ring: 210 100% 25%;
 
     --radius: 0.5rem;
 
@@ -44,28 +44,30 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* Custom SAW Analytics Colors */
-    --saw-blue: 198 100% 20%;
-    --saw-teal: 175 100% 40%;
-    --saw-navy: 220 39% 11%;
-    --saw-light-blue: 198 100% 85%;
-    --saw-orange: 25 100% 55%;
-    --saw-gray: 220 9% 46%;
-    --saw-light-gray: 220 14% 96%;
+    /* Updated SAW Analytics Colors - matching logo and psychology */
+    --saw-blue: 210 100% 25%;
+    --saw-teal: 180 85% 45%;
+    --saw-navy: 225 60% 15%;
+    --saw-light-blue: 210 100% 90%;
+    --saw-orange: 15 85% 55%;
+    --saw-gray: 220 15% 50%;
+    --saw-light-gray: 220 20% 96%;
+    --saw-warm-white: 40 20% 98%;
+    --saw-accent-green: 140 60% 45%;
   }
 
   .dark {
-    --background: 220 39% 11%;
+    --background: 225 60% 15%;
     --foreground: 210 40% 98%;
 
-    --card: 220 39% 11%;
+    --card: 225 60% 15%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 220 39% 11%;
+    --popover: 225 60% 15%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 175 100% 40%;
-    --primary-foreground: 220 39% 11%;
+    --primary: 180 85% 45%;
+    --primary-foreground: 225 60% 15%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -73,15 +75,15 @@
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 25 100% 55%;
-    --accent-foreground: 220 39% 11%;
+    --accent: 15 85% 55%;
+    --accent-foreground: 225 60% 15%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 175 100% 40%;
+    --ring: 180 85% 45%;
   }
 }
 
@@ -101,10 +103,18 @@
 
 @layer utilities {
   .saw-gradient {
-    @apply bg-gradient-to-r from-[hsl(var(--saw-blue))] to-[hsl(var(--saw-teal))];
+    @apply bg-gradient-to-r from-[hsl(var(--saw-blue))] via-[hsl(var(--saw-teal))] to-[hsl(var(--saw-accent-green))];
   }
   
   .saw-text-gradient {
-    @apply bg-gradient-to-r from-[hsl(var(--saw-blue))] to-[hsl(var(--saw-teal))] bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[hsl(var(--saw-blue))] via-[hsl(var(--saw-teal))] to-[hsl(var(--saw-accent-green))] bg-clip-text text-transparent;
+  }
+
+  .saw-warm-gradient {
+    @apply bg-gradient-to-br from-[hsl(var(--saw-warm-white))] to-[hsl(var(--saw-light-gray))];
+  }
+
+  .saw-accent-gradient {
+    @apply bg-gradient-to-r from-[hsl(var(--saw-teal))] to-[hsl(var(--saw-orange))];
   }
 }
