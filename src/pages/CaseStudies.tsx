@@ -1,210 +1,144 @@
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { BarChart, Users, Briefcase } from "lucide-react";
+import { ArrowRight, TrendingUp, Users, BarChart3, Target } from "lucide-react";
+import { Link } from "react-router-dom";
+import ConsultationForm from "@/components/ConsultationForm";
 
 const CaseStudies = () => {
   const caseStudies = [
     {
-      title: "Global Retailer Increases Revenue by $50M Through Customer Analytics",
-      industry: "Retail",
-      challenge: "A Fortune 500 retailer was struggling with declining customer retention and couldn't identify which customers were most valuable or likely to churn.",
-      solution: "Implemented advanced customer segmentation and predictive analytics to identify high-value customers and personalize marketing campaigns.",
-      results: [
-        "35% increase in customer retention",
-        "$50M revenue increase in 12 months",
-        "40% improvement in marketing ROI",
-        "25% reduction in customer acquisition costs"
-      ],
-      technologies: ["Machine Learning", "Customer Segmentation", "Predictive Analytics"],
-      timeline: "6 months",
-      icon: <Users className="w-8 h-8" />
-    },
-    {
-      title: "Manufacturing Company Reduces Costs by 30% with Operations Analytics",
-      industry: "Manufacturing",
-      challenge: "A mid-size manufacturer faced rising operational costs and frequent equipment failures that were impacting productivity and profit margins.",
-      solution: "Developed predictive maintenance models and supply chain optimization analytics to reduce downtime and operational inefficiencies.",
-      results: [
-        "30% reduction in operational costs",
-        "50% decrease in unplanned downtime",
-        "25% improvement in equipment efficiency",
-        "$15M annual cost savings"
-      ],
-      technologies: ["Predictive Maintenance", "Supply Chain Analytics", "IoT Data Analysis"],
-      timeline: "8 months",
-      icon: <Briefcase className="w-8 h-8" />
-    },
-    {
-      title: "Financial Services Firm Prevents $20M in Fraud Losses",
-      industry: "Financial Services",
-      challenge: "A regional bank was experiencing increasing fraud losses and needed to improve detection while minimizing false positives that frustrated customers.",
-      solution: "Built advanced fraud detection models using machine learning and real-time transaction analytics to identify suspicious patterns.",
-      results: [
-        "80% improvement in fraud detection",
-        "$20M prevented fraud losses annually",
-        "60% reduction in false positives",
-        "Improved customer satisfaction scores"
-      ],
-      technologies: ["Machine Learning", "Real-time Analytics", "Pattern Recognition"],
-      timeline: "4 months",
-      icon: <BarChart className="w-8 h-8" />
-    },
-    {
-      title: "Healthcare System Improves Patient Outcomes by 40%",
-      industry: "Healthcare",
-      challenge: "A large healthcare network needed to improve patient outcomes while reducing costs and optimizing resource allocation across multiple facilities.",
-      solution: "Implemented patient risk stratification models and operational analytics to improve care delivery and resource utilization.",
-      results: [
-        "40% improvement in patient outcomes",
-        "25% reduction in readmission rates",
-        "$30M reduction in operational costs",
-        "20% improvement in staff efficiency"
-      ],
-      technologies: ["Predictive Modeling", "Patient Analytics", "Resource Optimization"],
-      timeline: "10 months",
-      icon: <Users className="w-8 h-8" />
-    },
-    {
-      title: "Tech Startup Achieves 300% User Growth with Product Analytics",
+      title: "Tech Startup Revenue Growth",
+      client: "InnovateTech Solutions", 
       industry: "Technology",
-      challenge: "A fast-growing SaaS startup needed to understand user behavior patterns to improve product features and reduce churn in a competitive market.",
-      solution: "Developed comprehensive user analytics platform with behavior tracking, cohort analysis, and feature usage optimization.",
-      results: [
-        "300% increase in user growth",
-        "50% improvement in user retention",
-        "65% increase in feature adoption",
-        "40% reduction in churn rate"
-      ],
-      technologies: ["User Analytics", "Cohort Analysis", "A/B Testing"],
-      timeline: "5 months",
-      icon: <BarChart className="w-8 h-8" />
+      challenge: "50% revenue decline due to market changes",
+      solution: "Comprehensive financial analytics and strategic pivot planning",
+      results: ["35% revenue increase within 6 months", "Identified 3 new market opportunities", "Optimized pricing strategy resulting in 20% margin improvement"],
+      icon: <TrendingUp className="w-8 h-8" />
     },
     {
-      title: "Energy Company Optimizes Grid Performance Saving $25M",
-      industry: "Energy",
-      challenge: "A utility company faced increasing energy demand and grid inefficiencies that were leading to outages and high operational costs.",
-      solution: "Implemented smart grid analytics and demand forecasting models to optimize energy distribution and predict maintenance needs.",
-      results: [
-        "25% improvement in grid efficiency",
-        "$25M annual cost savings",
-        "40% reduction in outages",
-        "30% better demand forecasting"
-      ],
-      technologies: ["Grid Analytics", "Demand Forecasting", "Smart Sensors"],
-      timeline: "12 months",
-      icon: <Briefcase className="w-8 h-8" />
+      title: "Supply Chain Optimization",
+      client: "Global Manufacturing Corp",
+      industry: "Manufacturing", 
+      challenge: "30% increase in operational costs and delivery delays",
+      solution: "End-to-end supply chain analytics and process optimization",
+      results: ["25% reduction in operational costs", "40% improvement in delivery times", "15% increase in customer satisfaction"],
+      icon: <BarChart3 className="w-8 h-8" />
+    },
+    {
+      title: "HR Analytics Transformation",
+      client: "Enterprise Services Ltd",
+      industry: "Professional Services",
+      challenge: "High employee turnover (35%) and declining productivity",
+      solution: "People analytics implementation and performance optimization",
+      results: ["50% reduction in turnover rate", "30% increase in employee engagement", "20% improvement in productivity metrics"],
+      icon: <Users className="w-8 h-8" />
+    },
+    {
+      title: "Customer Segmentation Strategy",
+      client: "RetailMax Chain", 
+      industry: "Retail",
+      challenge: "Declining customer loyalty and unclear target segments",
+      solution: "Advanced customer analytics and segmentation modeling",
+      results: ["45% increase in customer retention", "25% boost in average transaction value", "Identified 5 high-value customer segments"],
+      icon: <Target className="w-8 h-8" />
     }
   ];
 
-  const insights = [
+  const testimonials = [
     {
-      title: "The Future of Retail Analytics",
-      type: "Whitepaper",
-      description: "How AI and machine learning are transforming customer experience and operational efficiency in retail.",
-      downloadCount: "2.5K downloads"
+      quote: "SAW Analytics didn't just provide data - they gave us a roadmap to success. Their insights transformed our entire business strategy.",
+      author: "Sarah Johnson",
+      title: "CEO, InnovateTech Solutions",
+      company: "Technology Startup"
     },
     {
-      title: "5 Key Metrics Every Finance Team Should Track",
-      type: "Blog Post",
-      description: "Essential KPIs that drive financial performance and how to implement tracking systems.",
-      downloadCount: "1.8K reads"
+      quote: "The supply chain optimization project exceeded all expectations. We're now operating more efficiently than ever before.",
+      author: "Michael Chen", 
+      title: "Operations Director, Global Manufacturing Corp",
+      company: "Manufacturing"
     },
     {
-      title: "Manufacturing 4.0: Analytics Implementation Guide",
-      type: "Guide",
-      description: "Step-by-step approach to implementing analytics in modern manufacturing environments.",
-      downloadCount: "3.2K downloads"
+      quote: "Their people analytics approach revolutionized how we think about our workforce. The ROI was immediate and substantial.",
+      author: "Emily Rodriguez",
+      title: "CHRO, Enterprise Services Ltd", 
+      company: "Professional Services"
     }
   ];
 
   return (
     <div>
-      {/* Hero Section - Deep Blue Theme */}
-      <section className="py-20 bg-gradient-to-br from-saw-navy to-blue-900 text-white">
+      {/* Hero Section - Deep Blue with Vibrant Teal */}
+      <section className="py-20 bg-gradient-to-br from-saw-navy to-saw-blue text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6">Case Studies & Insights</h1>
+            <h1 className="text-4xl lg:text-5xl font-bold mb-6">Case Studies</h1>
             <p className="text-xl text-blue-200 max-w-3xl mx-auto">
-              Real-world success stories and expert insights that demonstrate the transformative 
-              power of data-driven decision making.
+              Real results from real clients. Discover how SAW Analytics has transformed 
+              businesses across industries with data-driven strategies.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Case Studies */}
+      {/* Case Studies Grid */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-saw-navy mb-6">Success Stories</h2>
             <p className="text-xl text-blue-700 max-w-3xl mx-auto">
-              Discover how organizations across industries have achieved remarkable results 
-              through strategic analytics implementation.
+              Each project represents our commitment to delivering measurable results 
+              through strategic analytics and insights.
             </p>
           </div>
 
-          <div className="space-y-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {caseStudies.map((study, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-teal-200">
-                <CardContent className="p-0">
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
-                    {/* Content */}
-                    <div className="lg:col-span-2 p-8">
-                      <div className="flex items-start space-x-4 mb-6">
-                        <div className="text-saw-teal">{study.icon}</div>
-                        <div>
-                          <Badge variant="secondary" className="mb-2 bg-teal-100 text-teal-800">{study.industry}</Badge>
-                          <h3 className="text-2xl font-bold text-saw-navy mb-4">{study.title}</h3>
-                        </div>
-                      </div>
-
-                      <div className="space-y-6">
-                        <div>
-                          <h4 className="font-semibold text-saw-navy mb-2">Challenge</h4>
-                          <p className="text-blue-700">{study.challenge}</p>
-                        </div>
-
-                        <div>
-                          <h4 className="font-semibold text-saw-navy mb-2">Solution</h4>
-                          <p className="text-blue-700">{study.solution}</p>
-                        </div>
-
-                        <div>
-                          <h4 className="font-semibold text-saw-navy mb-3">Technologies Used</h4>
-                          <div className="flex flex-wrap gap-2">
-                            {study.technologies.map((tech, idx) => (
-                              <Badge key={idx} variant="outline" className="border-saw-teal text-saw-teal">
-                                {tech}
-                              </Badge>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
+              <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-l-4 border-l-saw-teal">
+                <CardContent className="p-8">
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="text-saw-teal group-hover:scale-110 transition-transform">
+                      {study.icon}
                     </div>
-
-                    {/* Results */}
-                    <div className="bg-teal-50 p-8 border-l-4 border-l-saw-teal">
-                      <h4 className="font-semibold text-saw-navy mb-4">Key Results</h4>
-                      <div className="space-y-3 mb-6">
+                    <span className="text-sm bg-blue-100 text-saw-navy px-3 py-1 rounded-full">
+                      {study.industry}
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold text-saw-navy mb-2">{study.title}</h3>
+                  <p className="text-saw-teal font-semibold mb-4">{study.client}</p>
+                  
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="font-semibold text-blue-800 mb-2">Challenge:</h4>
+                      <p className="text-blue-600">{study.challenge}</p>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-blue-800 mb-2">Solution:</h4>
+                      <p className="text-blue-600">{study.solution}</p>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-blue-800 mb-2">Results:</h4>
+                      <ul className="space-y-1">
                         {study.results.map((result, idx) => (
-                          <div key={idx} className="flex items-start space-x-2">
-                            <div className="w-2 h-2 bg-saw-teal rounded-full mt-2"></div>
-                            <span className="text-sm text-blue-700">{result}</span>
-                          </div>
+                          <li key={idx} className="text-blue-600 flex items-start">
+                            <span className="text-saw-teal mr-2">•</span>
+                            {result}
+                          </li>
                         ))}
-                      </div>
-                      
-                      <div className="border-t border-teal-200 pt-4">
-                        <p className="text-sm text-blue-700">
-                          <span className="font-medium">Timeline:</span> {study.timeline}
-                        </p>
-                      </div>
-
-                      <Button className="w-full mt-6 bg-saw-teal hover:bg-teal-600 text-white">
-                        Read Full Case Study
-                      </Button>
+                      </ul>
                     </div>
+                  </div>
+                  
+                  <div className="mt-6 pt-6 border-t border-blue-100">
+                    <ConsultationForm>
+                      <Button className="w-full bg-saw-teal hover:bg-cyan-600 text-white">
+                        Discuss Similar Project
+                        <ArrowRight className="ml-2 w-4 h-4" />
+                      </Button>
+                    </ConsultationForm>
                   </div>
                 </CardContent>
               </Card>
@@ -213,56 +147,80 @@ const CaseStudies = () => {
         </div>
       </section>
 
-      {/* Insights & Resources */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-teal-50">
+      {/* Testimonials Section - Deep Blue Background */}
+      <section className="py-20 bg-gradient-to-br from-saw-navy to-saw-blue text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-saw-navy mb-6">Insights & Resources</h2>
-            <p className="text-xl text-blue-700 max-w-3xl mx-auto">
-              Expert insights, industry reports, and practical guides to help you navigate 
-              your analytics journey.
+            <h2 className="text-3xl lg:text-4xl font-bold mb-6">Client Testimonials</h2>
+            <p className="text-xl text-blue-200 max-w-3xl mx-auto">
+              Hear directly from our clients about their transformation journey with SAW Analytics.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {insights.map((insight, index) => (
-              <Card key={index} className="group hover:shadow-lg transition-all duration-300 border border-teal-200">
-                <CardContent className="p-6">
-                  <Badge className="mb-3 bg-saw-teal text-white">{insight.type}</Badge>
-                  <h3 className="text-xl font-semibold text-saw-navy mb-3 group-hover:text-saw-teal transition-colors">
-                    {insight.title}
-                  </h3>
-                  <p className="text-blue-700 mb-4 text-sm">{insight.description}</p>
-                  <p className="text-xs text-saw-teal font-medium mb-4">{insight.downloadCount}</p>
-                  <Button size="sm" className="w-full" variant="outline" className="border-saw-teal text-saw-teal hover:bg-saw-teal hover:text-white">
-                    Download
-                  </Button>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="bg-white/10 backdrop-blur border-saw-teal/30 text-white group hover:bg-white/15 transition-all duration-300">
+                <CardContent className="p-8 text-center">
+                  <div className="text-4xl text-saw-teal mb-4">"</div>
+                  <p className="text-blue-100 mb-6 italic text-lg leading-relaxed">
+                    {testimonial.quote}
+                  </p>
+                  <div className="border-t border-saw-teal/30 pt-6">
+                    <p className="font-bold text-white mb-1">{testimonial.author}</p>
+                    <p className="text-saw-teal text-sm mb-1">{testimonial.title}</p>
+                    <p className="text-blue-200 text-sm">{testimonial.company}</p>
+                  </div>
                 </CardContent>
               </Card>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="text-center mt-12">
-            <Button size="lg" className="bg-saw-teal hover:bg-teal-600 text-white">
-              View All Resources
-            </Button>
+      {/* Results Overview - White Background with Teal Accents */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-saw-navy mb-6">Our Impact by the Numbers</h2>
+            <p className="text-xl text-blue-700 max-w-3xl mx-auto">
+              Aggregate results from our case studies demonstrate the measurable value we deliver.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="text-5xl font-bold text-saw-teal mb-2">$500M+</div>
+              <div className="text-blue-700">Client Value Created</div>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold text-saw-teal mb-2">35%</div>
+              <div className="text-blue-700">Avg Revenue Increase</div>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold text-saw-teal mb-2">40%</div>
+              <div className="text-blue-700">Avg Cost Reduction</div>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold text-saw-teal mb-2">98%</div>
+              <div className="text-blue-700">Client Satisfaction</div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-saw-navy to-blue-900 text-white">
+      {/* CTA Section - Deep Blue to Teal Gradient */}
+      <section className="py-24 bg-gradient-to-r from-saw-navy via-saw-blue to-saw-teal text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            Ready to Create Your Success Story?
-          </h2>
-          <p className="text-xl mb-8 text-blue-200 max-w-2xl mx-auto">
-            Join these successful organizations and transform your business with data-driven insights. 
-            Let's discuss your analytics opportunity.
+          <h2 className="text-3xl lg:text-4xl font-bold mb-6">Ready to Write Your Success Story?</h2>
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
+            Let's discuss how SAW Analytics can help your organization achieve similar transformational results.
           </p>
-          <Button size="lg" className="bg-saw-teal hover:bg-teal-600 text-white px-8 py-4 text-lg">
-            Start Your Analytics Journey
-          </Button>
+          <ConsultationForm>
+            <Button size="lg" className="bg-white text-saw-navy hover:bg-blue-50 text-lg px-8 py-3">
+              Start Your Transformation
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </ConsultationForm>
         </div>
       </section>
     </div>

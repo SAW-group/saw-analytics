@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -28,6 +29,29 @@ const ConsultationForm = ({ children }: ConsultationFormProps) => {
   });
 
   const { toast } = useToast();
+  const location = useLocation();
+
+  // Get button style based on current page
+  const getButtonStyle = () => {
+    const path = location.pathname;
+    
+    if (path === "/" || path === "/contact") {
+      // Orange theme for home and contact pages
+      return "saw-gradient text-white hover:opacity-90";
+    } else if (path === "/case-studies") {
+      // Teal theme for case studies page
+      return "bg-saw-teal hover:bg-cyan-600 text-white";
+    } else if (path === "/services") {
+      // Forest green theme for services page
+      return "bg-saw-accent-green hover:bg-green-600 text-white";
+    } else if (path === "/about") {
+      // Blue theme for about page
+      return "bg-saw-blue hover:bg-blue-700 text-white";
+    } else {
+      // Default gradient
+      return "saw-gradient text-white hover:opacity-90";
+    }
+  };
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -167,7 +191,7 @@ const ConsultationForm = ({ children }: ConsultationFormProps) => {
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="flex-1 saw-gradient text-white hover:opacity-90"
+              className={`flex-1 ${getButtonStyle()}`}
             >
               {isSubmitting ? "Submitting..." : "Submit Request"}
             </Button>
