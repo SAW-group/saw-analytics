@@ -29,9 +29,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 saw-gradient rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">S</span>
-              </div>
+              <img 
+                src="/lovable-uploads/65cab93b-227f-4e2f-b12a-7da2ff0c052a.png" 
+                alt="SAW Analytics Logo" 
+                className="w-10 h-10"
+              />
               <span className="text-2xl font-bold text-saw-navy">SAW Analytics</span>
             </Link>
 
@@ -106,9 +108,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-10 h-10 saw-gradient rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">S</span>
-                </div>
+                <img 
+                  src="/lovable-uploads/65cab93b-227f-4e2f-b12a-7da2ff0c052a.png" 
+                  alt="SAW Analytics Logo" 
+                  className="w-10 h-10"
+                />
                 <span className="text-2xl font-bold">SAW Analytics</span>
               </div>
               <p className="text-gray-300 mb-4 max-w-md">
