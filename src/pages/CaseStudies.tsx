@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -121,12 +120,12 @@ const CaseStudies = () => {
 
   return (
     <div>
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-saw-navy to-saw-blue text-white">
+      {/* Hero Section - Deep Blue Theme */}
+      <section className="py-20 bg-gradient-to-br from-saw-navy to-blue-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">Case Studies & Insights</h1>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-blue-200 max-w-3xl mx-auto">
               Real-world success stories and expert insights that demonstrate the transformative 
               power of data-driven decision making.
             </p>
@@ -139,7 +138,7 @@ const CaseStudies = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-saw-navy mb-6">Success Stories</h2>
-            <p className="text-xl text-saw-gray max-w-3xl mx-auto">
+            <p className="text-xl text-blue-700 max-w-3xl mx-auto">
               Discover how organizations across industries have achieved remarkable results 
               through strategic analytics implementation.
             </p>
@@ -147,7 +146,7 @@ const CaseStudies = () => {
 
           <div className="space-y-12">
             {caseStudies.map((study, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
+              <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-teal-200">
                 <CardContent className="p-0">
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
                     {/* Content */}
@@ -155,7 +154,7 @@ const CaseStudies = () => {
                       <div className="flex items-start space-x-4 mb-6">
                         <div className="text-saw-teal">{study.icon}</div>
                         <div>
-                          <Badge variant="secondary" className="mb-2">{study.industry}</Badge>
+                          <Badge variant="secondary" className="mb-2 bg-teal-100 text-teal-800">{study.industry}</Badge>
                           <h3 className="text-2xl font-bold text-saw-navy mb-4">{study.title}</h3>
                         </div>
                       </div>
@@ -163,12 +162,12 @@ const CaseStudies = () => {
                       <div className="space-y-6">
                         <div>
                           <h4 className="font-semibold text-saw-navy mb-2">Challenge</h4>
-                          <p className="text-saw-gray">{study.challenge}</p>
+                          <p className="text-blue-700">{study.challenge}</p>
                         </div>
 
                         <div>
                           <h4 className="font-semibold text-saw-navy mb-2">Solution</h4>
-                          <p className="text-saw-gray">{study.solution}</p>
+                          <p className="text-blue-700">{study.solution}</p>
                         </div>
 
                         <div>
@@ -185,24 +184,24 @@ const CaseStudies = () => {
                     </div>
 
                     {/* Results */}
-                    <div className="bg-saw-light-gray p-8">
+                    <div className="bg-teal-50 p-8 border-l-4 border-l-saw-teal">
                       <h4 className="font-semibold text-saw-navy mb-4">Key Results</h4>
                       <div className="space-y-3 mb-6">
                         {study.results.map((result, idx) => (
                           <div key={idx} className="flex items-start space-x-2">
                             <div className="w-2 h-2 bg-saw-teal rounded-full mt-2"></div>
-                            <span className="text-sm text-saw-gray">{result}</span>
+                            <span className="text-sm text-blue-700">{result}</span>
                           </div>
                         ))}
                       </div>
                       
-                      <div className="border-t pt-4">
-                        <p className="text-sm text-saw-gray">
+                      <div className="border-t border-teal-200 pt-4">
+                        <p className="text-sm text-blue-700">
                           <span className="font-medium">Timeline:</span> {study.timeline}
                         </p>
                       </div>
 
-                      <Button className="w-full mt-6 saw-gradient text-white hover:opacity-90">
+                      <Button className="w-full mt-6 bg-saw-teal hover:bg-teal-600 text-white">
                         Read Full Case Study
                       </Button>
                     </div>
@@ -215,11 +214,11 @@ const CaseStudies = () => {
       </section>
 
       {/* Insights & Resources */}
-      <section className="py-20 bg-saw-light-gray">
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-teal-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-saw-navy mb-6">Insights & Resources</h2>
-            <p className="text-xl text-saw-gray max-w-3xl mx-auto">
+            <p className="text-xl text-blue-700 max-w-3xl mx-auto">
               Expert insights, industry reports, and practical guides to help you navigate 
               your analytics journey.
             </p>
@@ -227,15 +226,15 @@ const CaseStudies = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {insights.map((insight, index) => (
-              <Card key={index} className="group hover:shadow-lg transition-all duration-300">
+              <Card key={index} className="group hover:shadow-lg transition-all duration-300 border border-teal-200">
                 <CardContent className="p-6">
-                  <Badge className="mb-3 saw-gradient text-white">{insight.type}</Badge>
+                  <Badge className="mb-3 bg-saw-teal text-white">{insight.type}</Badge>
                   <h3 className="text-xl font-semibold text-saw-navy mb-3 group-hover:text-saw-teal transition-colors">
                     {insight.title}
                   </h3>
-                  <p className="text-saw-gray mb-4 text-sm">{insight.description}</p>
+                  <p className="text-blue-700 mb-4 text-sm">{insight.description}</p>
                   <p className="text-xs text-saw-teal font-medium mb-4">{insight.downloadCount}</p>
-                  <Button size="sm" className="w-full" variant="outline">
+                  <Button size="sm" className="w-full" variant="outline" className="border-saw-teal text-saw-teal hover:bg-saw-teal hover:text-white">
                     Download
                   </Button>
                 </CardContent>
@@ -244,7 +243,7 @@ const CaseStudies = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" className="saw-gradient text-white hover:opacity-90">
+            <Button size="lg" className="bg-saw-teal hover:bg-teal-600 text-white">
               View All Resources
             </Button>
           </div>
@@ -252,16 +251,16 @@ const CaseStudies = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 saw-gradient text-white">
+      <section className="py-20 bg-gradient-to-br from-saw-navy to-blue-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">
             Ready to Create Your Success Story?
           </h2>
-          <p className="text-xl mb-8 text-gray-200 max-w-2xl mx-auto">
+          <p className="text-xl mb-8 text-blue-200 max-w-2xl mx-auto">
             Join these successful organizations and transform your business with data-driven insights. 
             Let's discuss your analytics opportunity.
           </p>
-          <Button size="lg" className="bg-white text-saw-teal hover:bg-gray-100 px-8 py-4 text-lg">
+          <Button size="lg" className="bg-saw-teal hover:bg-teal-600 text-white px-8 py-4 text-lg">
             Start Your Analytics Journey
           </Button>
         </div>

@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -102,12 +101,12 @@ const Contact = () => {
 
   return (
     <div>
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-saw-navy to-saw-blue text-white">
+      {/* Hero Section - Orange Theme */}
+      <section className="py-20 bg-gradient-to-br from-saw-orange to-amber-400 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">Contact Us</h1>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-orange-100 max-w-3xl mx-auto">
               Ready to transform your data into strategic advantage? Let's start the conversation 
               about how SAW Analytics can drive your business forward.
             </p>
@@ -119,8 +118,8 @@ const Contact = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-saw-navy mb-6">How Can We Help?</h2>
-            <p className="text-xl text-saw-gray max-w-3xl mx-auto">
+            <h2 className="text-3xl lg:text-4xl font-bold text-saw-orange mb-6">How Can We Help?</h2>
+            <p className="text-xl text-amber-700 max-w-3xl mx-auto">
               Whether you're looking to start an analytics project or explore partnership opportunities, 
               we're here to help.
             </p>
@@ -128,14 +127,14 @@ const Contact = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {contactReasons.map((reason, index) => (
-              <Card key={index} className="text-center group hover:shadow-lg transition-all duration-300">
+              <Card key={index} className="text-center group hover:shadow-lg transition-all duration-300 border border-orange-200">
                 <CardContent className="p-8">
-                  <div className="text-saw-teal mb-4 flex justify-center group-hover:scale-110 transition-transform">
+                  <div className="text-saw-orange mb-4 flex justify-center group-hover:scale-110 transition-transform">
                     {reason.icon}
                   </div>
-                  <h3 className="text-xl font-semibold text-saw-navy mb-4">{reason.title}</h3>
-                  <p className="text-saw-gray mb-6">{reason.description}</p>
-                  <Button className="w-full saw-gradient text-white hover:opacity-90">
+                  <h3 className="text-xl font-semibold text-amber-800 mb-4">{reason.title}</h3>
+                  <p className="text-amber-600 mb-6">{reason.description}</p>
+                  <Button className="w-full bg-saw-orange hover:bg-amber-500 text-white">
                     {reason.action}
                   </Button>
                 </CardContent>
@@ -145,14 +144,14 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Contact Form & Info */}
-      <section className="py-20 bg-saw-light-gray">
+      {/* Contact Form & Info - Warm White Background */}
+      <section className="py-20 bg-saw-warm-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <Card>
+            <Card className="border border-orange-200">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-saw-navy mb-6">Send Us a Message</h3>
+                <h3 className="text-2xl font-bold text-saw-orange mb-6">Send Us a Message</h3>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
@@ -241,7 +240,7 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button type="submit" className="w-full saw-gradient text-white hover:opacity-90 text-lg py-3">
+                  <Button type="submit" className="w-full bg-saw-orange hover:bg-amber-500 text-white text-lg py-3">
                     Send Message
                   </Button>
                 </form>
@@ -251,32 +250,32 @@ const Contact = () => {
             {/* Contact Information */}
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-bold text-saw-navy mb-6">Get in Touch</h3>
+                <h3 className="text-2xl font-bold text-saw-orange mb-6">Get in Touch</h3>
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
-                    <Phone className="w-5 h-5 text-saw-teal" />
-                    <span className="text-saw-gray">+1 (555) 123-4567</span>
+                    <Phone className="w-5 h-5 text-saw-orange" />
+                    <span className="text-amber-700">+1 (555) 123-4567</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <Mail className="w-5 h-5 text-saw-teal" />
-                    <span className="text-saw-gray">contact@sawanalytics.com</span>
+                    <Mail className="w-5 h-5 text-saw-orange" />
+                    <span className="text-amber-700">contact@sawanalytics.com</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <Users className="w-5 h-5 text-saw-teal" />
-                    <span className="text-saw-gray">Response within 24 hours</span>
+                    <Users className="w-5 h-5 text-saw-orange" />
+                    <span className="text-amber-700">Response within 24 hours</span>
                   </div>
                 </div>
               </div>
 
               {/* Office Locations */}
               <div>
-                <h4 className="text-xl font-semibold text-saw-navy mb-4">Our Offices</h4>
+                <h4 className="text-xl font-semibold text-saw-orange mb-4">Our Offices</h4>
                 <div className="space-y-6">
                   {offices.map((office, index) => (
-                    <Card key={index} className="border-l-4 border-l-saw-teal">
+                    <Card key={index} className="border-l-4 border-l-saw-orange border border-orange-200">
                       <CardContent className="p-4">
-                        <h5 className="font-semibold text-saw-navy mb-2">{office.city}</h5>
-                        <div className="text-sm text-saw-gray space-y-1">
+                        <h5 className="font-semibold text-amber-800 mb-2">{office.city}</h5>
+                        <div className="text-sm text-amber-600 space-y-1">
                           <p>{office.address}</p>
                           <p>{office.zipCode}</p>
                           <p>{office.phone}</p>
@@ -289,10 +288,10 @@ const Contact = () => {
               </div>
 
               {/* Business Hours */}
-              <Card>
+              <Card className="border border-orange-200">
                 <CardContent className="p-6">
-                  <h4 className="text-xl font-semibold text-saw-navy mb-4">Business Hours</h4>
-                  <div className="space-y-2 text-sm text-saw-gray">
+                  <h4 className="text-xl font-semibold text-saw-orange mb-4">Business Hours</h4>
+                  <div className="space-y-2 text-sm text-amber-600">
                     <div className="flex justify-between">
                       <span>Monday - Friday</span>
                       <span>9:00 AM - 6:00 PM EST</span>
@@ -313,23 +312,23 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Map Section (Placeholder) */}
+      {/* Map Section - White Background */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h3 className="text-2xl font-bold text-saw-navy mb-4">Find Us</h3>
-            <p className="text-saw-gray">Visit our offices or schedule a virtual meeting</p>
+            <h3 className="text-2xl font-bold text-saw-orange mb-4">Find Us</h3>
+            <p className="text-amber-700">Visit our offices or schedule a virtual meeting</p>
           </div>
           
-          <div className="bg-saw-light-gray rounded-lg p-12 text-center">
-            <div className="w-16 h-16 bg-saw-teal rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="bg-saw-warm-white rounded-lg p-12 text-center border border-orange-200">
+            <div className="w-16 h-16 bg-saw-orange rounded-full flex items-center justify-center mx-auto mb-4">
               <Users className="w-8 h-8 text-white" />
             </div>
-            <h4 className="text-xl font-semibold text-saw-navy mb-2">Interactive Map</h4>
-            <p className="text-saw-gray mb-6">
+            <h4 className="text-xl font-semibold text-amber-800 mb-2">Interactive Map</h4>
+            <p className="text-amber-600 mb-6">
               Detailed office locations and directions will be integrated here
             </p>
-            <Button variant="outline" className="border-saw-teal text-saw-teal hover:bg-saw-teal hover:text-white">
+            <Button variant="outline" className="border-saw-orange text-saw-orange hover:bg-saw-orange hover:text-white">
               Get Directions
             </Button>
           </div>
