@@ -2,8 +2,7 @@
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/33c89efe-4ee2-44e5-8c29-e8c44747e579
-
+**URL**: https://saw-group.github.io/saw-analytics/
 ## How can I edit this code?
 
 There are several ways of editing your application.
